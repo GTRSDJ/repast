@@ -1,0 +1,298 @@
+<!DOCTYPE HTML>
+<html  lang="zh" xmlns:th="http://www.thymeleaf.org">
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="white-bg">
+    <div class="wrapper wrapper-content animated fadeInRight ibox-content">
+        <form class="form-horizontal m" id="form-order-add">
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">：</label>
+				<div class="col-sm-8">
+					<input id="memberId" name="memberId" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">：</label>
+				<div class="col-sm-8">
+					<input id="shopId" name="shopId" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">拼团活动ID：</label>
+				<div class="col-sm-8">
+					<input id="groupPromotionId" name="groupPromotionId" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">促销活动ID：</label>
+				<div class="col-sm-8">
+					<input id="couponId" name="couponId" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">订单编号：</label>
+				<div class="col-sm-8">
+					<input id="orderSn" name="orderSn" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">提交时间：</label>
+				<div class="col-sm-8">
+					<input id="createTime" name="createTime" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">用户帐号：</label>
+				<div class="col-sm-8">
+					<input id="memberUsername" name="memberUsername" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">订单总金额：</label>
+				<div class="col-sm-8">
+					<input id="totalAmount" name="totalAmount" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">应付金额（实际支付金额）：</label>
+				<div class="col-sm-8">
+					<input id="payAmount" name="payAmount" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">运费金额：</label>
+				<div class="col-sm-8">
+					<input id="freightAmount" name="freightAmount" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">促销优化金额（促销价、满减、阶梯价）：</label>
+				<div class="col-sm-8">
+					<input id="promotionAmount" name="promotionAmount" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">积分抵扣金额：</label>
+				<div class="col-sm-8">
+					<input id="integrationAmount" name="integrationAmount" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">优惠券抵扣金额：</label>
+				<div class="col-sm-8">
+					<input id="couponAmount" name="couponAmount" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">管理员后台调整订单使用的折扣金额：</label>
+				<div class="col-sm-8">
+					<input id="discountAmount" name="discountAmount" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">支付方式：0->未支付；1->支付宝；2->微信：</label>
+				<div class="col-sm-8">
+					<input id="payType" name="payType" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">订单来源：0->PC订单；1->app订单：</label>
+				<div class="col-sm-8">
+					<input id="sourceType" name="sourceType" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">订单状态：0->待付款；1->待发货；2->已发货；3->已完成；4->已关闭；5->无效订单：</label>
+				<div class="col-sm-8">
+					<input id="status" name="status" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">订单类型：0->正常订单；1->秒杀订单：</label>
+				<div class="col-sm-8">
+					<input id="orderType" name="orderType" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">物流公司(配送方式)：</label>
+				<div class="col-sm-8">
+					<input id="deliveryCompany" name="deliveryCompany" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">物流单号：</label>
+				<div class="col-sm-8">
+					<input id="deliverySn" name="deliverySn" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">自动确认时间（天）：</label>
+				<div class="col-sm-8">
+					<input id="autoConfirmDay" name="autoConfirmDay" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">可以获得的积分：</label>
+				<div class="col-sm-8">
+					<input id="integration" name="integration" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">可以活动的成长值：</label>
+				<div class="col-sm-8">
+					<input id="growth" name="growth" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">活动信息：</label>
+				<div class="col-sm-8">
+					<input id="promotionInfo" name="promotionInfo" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">发票类型：0->不开发票；1->电子发票；2->纸质发票：</label>
+				<div class="col-sm-8">
+					<input id="billType" name="billType" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">发票抬头：</label>
+				<div class="col-sm-8">
+					<input id="billHeader" name="billHeader" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">发票内容：</label>
+				<div class="col-sm-8">
+					<input id="billContent" name="billContent" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">收票人电话：</label>
+				<div class="col-sm-8">
+					<input id="billReceiverPhone" name="billReceiverPhone" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">收票人邮箱：</label>
+				<div class="col-sm-8">
+					<input id="billReceiverEmail" name="billReceiverEmail" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">收货人姓名：</label>
+				<div class="col-sm-8">
+					<input id="receiverName" name="receiverName" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">收货人电话：</label>
+				<div class="col-sm-8">
+					<input id="receiverPhone" name="receiverPhone" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">收货人邮编：</label>
+				<div class="col-sm-8">
+					<input id="receiverPostCode" name="receiverPostCode" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">省份/直辖市：</label>
+				<div class="col-sm-8">
+					<input id="receiverProvince" name="receiverProvince" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">城市：</label>
+				<div class="col-sm-8">
+					<input id="receiverCity" name="receiverCity" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">区：</label>
+				<div class="col-sm-8">
+					<input id="receiverRegion" name="receiverRegion" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">详细地址：</label>
+				<div class="col-sm-8">
+					<input id="receiverDetailAddress" name="receiverDetailAddress" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">订单备注：</label>
+				<div class="col-sm-8">
+					<input id="note" name="note" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">确认收货状态：0->未确认；1->已确认：</label>
+				<div class="col-sm-8">
+					<input id="confirmStatus" name="confirmStatus" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">删除状态：0->未删除；1->已删除：</label>
+				<div class="col-sm-8">
+					<input id="deleteStatus" name="deleteStatus" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">下单时使用的积分：</label>
+				<div class="col-sm-8">
+					<input id="useIntegration" name="useIntegration" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">支付时间：</label>
+				<div class="col-sm-8">
+					<input id="paymentTime" name="paymentTime" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">发货时间：</label>
+				<div class="col-sm-8">
+					<input id="deliveryTime" name="deliveryTime" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">确认收货时间：</label>
+				<div class="col-sm-8">
+					<input id="receiveTime" name="receiveTime" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">评价时间：</label>
+				<div class="col-sm-8">
+					<input id="commentTime" name="commentTime" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">修改时间：</label>
+				<div class="col-sm-8">
+					<input id="modifyTime" name="modifyTime" class="form-control" type="text">
+				</div>
+			</div>
+		</form>
+	</div>
+    <div th:include="include::footer"></div>
+    <script type="text/javascript">
+		var prefix = ctx + "system/order"
+		$("#form-order-add").validate({
+			rules:{
+				xxxx:{
+					required:true,
+				},
+			}
+		});
+		
+		function submitHandler() {
+	        if ($.validate.form()) {
+	            $.operate.save(prefix + "/add", $('#form-order-add').serialize());
+	        }
+	    }
+	</script>
+</body>
+</html>

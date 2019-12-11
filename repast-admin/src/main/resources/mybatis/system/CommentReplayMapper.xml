@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aaa.repast.admin.project.system.commentReplay.mapper.CommentReplayMapper">
+    
+    <resultMap type="CommentReplay" id="CommentReplayResult">
+        <result property="id"    column="id"    />
+        <result property="commentId"    column="comment_id"    />
+        <result property="memberNickName"    column="member_nick_name"    />
+        <result property="memberIcon"    column="member_icon"    />
+        <result property="content"    column="content"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="type"    column="type"    />
+    </resultMap>
+	
+	<sql id="selectCommentReplayVo">
+        select id, comment_id, member_nick_name, member_icon, content, create_time, type from pms_comment_replay
+    </sql>
+	
+    <select id="selectCommentReplayList" parameterType="CommentReplay" resultMap="CommentReplayResult">
+        <include refid="selectCommentReplayVo"/>
+        <where>  
+            <if test="id != null "> and id = #{id}</if>
+             <if test="commentId != null "> and comment_id = #{commentId}</if>
+             <if test="memberNickName != null  and memberNickName != '' "> and member_nick_name = #{memberNickName}</if>
+             <if test="memberIcon != null  and memberIcon != '' "> and member_icon = #{memberIcon}</if>
+             <if test="content != null  and content != '' "> and content = #{content}</if>
+             <if test="createTime != null "> and create_time = #{createTime}</if>
+             <if test="type != null "> and type = #{type}</if>
+         </where>
+    </select>
+    
+    <select id="selectCommentReplayById" parameterType="Long" resultMap="CommentReplayResult">
+        <include refid="selectCommentReplayVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertCommentReplay" parameterType="CommentReplay">
+        insert into pms_comment_replay
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null  ">id,</if>
+			<if test="commentId != null  ">comment_id,</if>
+			<if test="memberNickName != null  and memberNickName != ''  ">member_nick_name,</if>
+			<if test="memberIcon != null  and memberIcon != ''  ">member_icon,</if>
+			<if test="content != null  and content != ''  ">content,</if>
+			<if test="createTime != null  ">create_time,</if>
+			<if test="type != null  ">type,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null  ">#{id},</if>
+			<if test="commentId != null  ">#{commentId},</if>
+			<if test="memberNickName != null  and memberNickName != ''  ">#{memberNickName},</if>
+			<if test="memberIcon != null  and memberIcon != ''  ">#{memberIcon},</if>
+			<if test="content != null  and content != ''  ">#{content},</if>
+			<if test="createTime != null  ">#{createTime},</if>
+			<if test="type != null  ">#{type},</if>
+         </trim>
+    </insert>
+	 
+    <update id="updateCommentReplay" parameterType="CommentReplay">
+        update pms_comment_replay
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="commentId != null  ">comment_id = #{commentId},</if>
+            <if test="memberNickName != null  and memberNickName != ''  ">member_nick_name = #{memberNickName},</if>
+            <if test="memberIcon != null  and memberIcon != ''  ">member_icon = #{memberIcon},</if>
+            <if test="content != null  and content != ''  ">content = #{content},</if>
+            <if test="createTime != null  ">create_time = #{createTime},</if>
+            <if test="type != null  ">type = #{type},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+	<delete id="deleteCommentReplayById" parameterType="Long">
+        delete from pms_comment_replay where id = #{id}
+    </delete>
+	
+    <delete id="deleteCommentReplayByIds" parameterType="String">
+        delete from pms_comment_replay where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+</mapper>
